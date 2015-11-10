@@ -30,7 +30,7 @@ var Device = ReactMeteor.createClass({
         </div>
         <div className="info">
           <span><strong>IP:</strong> { this.state.ip }</span>
-          <span><strong>Port:</strong> { this.state.port }</span>
+          <span><strong>Puerto:</strong> { this.state.port }</span>
         </div>
     </div>);
   }
