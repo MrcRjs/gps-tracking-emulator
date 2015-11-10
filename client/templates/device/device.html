@@ -10,30 +10,30 @@
         <div class="row">
           <span class="col-md-6"><strong>IP:</strong>{{ ip }}</span>
           <span class="col-md-6"><strong>Port:</strong>{{ port }}</span>
-          <span class="col-md-6"><strong>Model:</strong>{{ model }}</span>
+          <span class="col-md-6"><strong>Modelo:</strong>{{ model }}</span>
           <span class="col-md-6"><strong>UID:</strong>{{ uid }}</span>
-          <span class="col-md-6"><strong>Sync:</strong>Every {{ timeout }}ms</span>
+          <span class="col-md-6"><strong>Sync:</strong>Cada {{ timeout }}ms</span>
         </div>
         <span class="status">{{lastStatus}}</span>
         <div class="actions">
       
           <div class="btn-group" role="group">
             {{#if equals connectionStatus "connected"}}
-              <button class="btn btn-default login">Login request</button>
+              <button class="btn btn-default login">Peticiòn de Loggeo</button>
               <button class="btn btn-default ping">Ping</button>
-              <button class="btn btn-default alarm">Alarm</button>
-              <button class="btn btn-default startPings">Start pings</button>
-              <button class="btn btn-default pausePings">Pause pings</button>
-              <button class="btn btn-default sendCustom">Custom message</button>
-              <button class="btn btn-danger disconnect">Disconnect</button>
+              <button class="btn btn-default alarm">Alarma</button>
+              <button class="btn btn-default startPings">Iniciar pings</button>
+              <button class="btn btn-default pausePings">Pausar pings</button>
+              <button class="btn btn-default sendCustom">Mensaje personalizado</button>
+              <button class="btn btn-danger disconnect">Desconectar</button>
             {{else}}
-              <button class="btn btn-primary connect">Connect</button>
+              <button class="btn btn-primary connect">Conectar</button>
             {{/if}}
           </div>
 
         </div>  
         <div class="log">
-          <a href="" class="show-log">Show/hide log ({{ logCount }})</a>
+          <a href="" class="show-log">Mostrar/ocultar log ({{ logCount }})</a>
           <ul style="display:none">
             {{ #each statuses }}<li>{{this}}</li>{{/each}}
           </ul>

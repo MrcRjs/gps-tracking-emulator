@@ -50,21 +50,21 @@ Template.device.events({
 		var tpl = Template.instance();
 		e.preventDefault();
 		swal({   
-			title: "Send custom message",   
-			text: "Write your custom message:",   
+			title: "Enviar mensaje personalizado",   
+			text: "Escribe tu mensaje:",   
 			type: "input",   
 			showCancelButton: true,   
 			closeOnConfirm: false,   
 			animation: "slide-from-top",   
-			inputPlaceholder: "Write something" 
+			inputPlaceholder: "Mensaje" 
 		}, function(inputValue){   
 			if (inputValue === false) 
 				return false;      
 			if (inputValue === "") {     
-				swal.showInputError("You need to write something!");     
+				swal.showInputError("Necesitas escribir algo!");     
 				return false   
 			}      
-			swal("Nice!", "You wrote: " + inputValue, "success"); 
+			swal("Perfecto!", "Has enviado: " + inputValue, "correctamente"); 
 			tpl.sendCustom(inputValue);
 		});
 
@@ -118,48 +118,48 @@ Template.device.rendered = function(){
 	this.emulator.setTimeout(this.data.timeout);
 
 	_this.emulator.onConnect = function(){
-		_this.status("Connecting...");
+		_this.status('Conectando...');
 		_this.connectionStatus('connecting');
 	}
 	_this.emulator.onConnected = function(){
-		_this.status('Connected');
+		_this.status('Conectado');
 		_this.connectionStatus('connected');
 	}
 
 	_this.emulator.onDisconnected = function(){
-		_this.status('Disconnected');
+		_this.status('Desconectado');
 		_this.connectionStatus('disconnected');
 	}
 
 	_this.emulator.onConnectionError = function(){
-		_this.status('Connection error');
+		_this.status('Error de conexión');
 		_this.connectionStatus('disconnected');
 	}
 
 	_this.emulator.onLoginAuthorized = function(){
-		_this.status('Login accepted');
+		_this.status('Logeo autorizado');
 		this.startPings();
 	}
 	_this.emulator.onLoginRejected = function(error,response){
-		_this.status('Login rejected: '+response);
+		_this.status('Logeo rechazado: '+response);
 	}
 	_this.emulator.onPing = function(){
 		pings++;
-		_this.status('Ping sended! (x'+pings+')');
+		_this.status('Ping enviado! (x'+pings+')');
 	}
 	_this.emulator.onLogin = function(){
-		_this.status("Sending login request...");
+		_this.status("Enviando petición de logeo...");
 	}
 
 	_this.emulator.onStartPings = function(){
-		_this.status("Starting to send pings every "+_this.data.timeout+"ms...");
+		_this.status("Enviando pings cada "+_this.data.timeout+" ms...");
 	}
 
 	_this.emulator.onPausePings = function(){
-		_this.status("Pings paused");
+		_this.status("Pings pausados");
 	}
 	_this.emulator.onCustomMessageSended = function(error, result, message){
-		_this.status("Message sended: "+message);
+		_this.status("Mensaje Enviado: "+message);
 	}
 
 	//FUNCTIONS
